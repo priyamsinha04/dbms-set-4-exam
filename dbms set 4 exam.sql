@@ -47,11 +47,10 @@ Describe Vehicle_details
 Select * from Driver_details ;
 Select * from Vehicle_details;
 
-SELECT Driver_id, Driver_name, Driver_dob, Driver_doj, Driver_grade, 
-Driver_distance, Vehicle_number
-FROM Driver_details
-WHERE Vehicle_number IN (SELECT Vehicle_id FROM Vehicle_details 
-WHERE Vehicle_name = 'Truck');
+Select dd.Driver_id, dd.Driver_name,dd.Driver_dob,dd.Driver_doj,dd.Driver_grade,dd.Driver_distance, vd.Vehicle_name
+    FROM Driver_details dd
+    JOIN Vehicle_details vd ON dd.Vehicle_number=vd.Vehicle_id
+    Where vd.Vehicle_name='Truck';
 
 SELECT Driver_name
 FROM Driver_details
