@@ -7,7 +7,7 @@ CREATE TABLE Vehicle_details (
 );
 -- Creating the Driver_details table
 CREATE TABLE Driver_details (
- Driver_id CHAR(4) PRIMARY KEY,A
+ Driver_id CHAR(4) PRIMARY KEY,
  Driver_name VARCHAR2(25) NOT NULL,
  Driver_dob DATE,
  Driver_doj DATE,
@@ -40,18 +40,23 @@ INSERT INTO Driver_details (Driver_id, Driver_name, Driver_dob,
 Driver_doj, Driver_grade, Driver_distance, Vehicle_number) VALUES
 ('D103', 'Mike Johnson', TO_DATE('1992-11-30', 'YYYY-MM-DD'), 
 TO_DATE('2017-06-05', 'YYYY-MM-DD'), 'C', 10000, 103);
+
 Describe Driver_details
 Describe Vehicle_details
+    
 Select * from Driver_details ;
 Select * from Vehicle_details;
+
 SELECT Driver_id, Driver_name, Driver_dob, Driver_doj, Driver_grade, 
 Driver_distance, Vehicle_number
 FROM Driver_details
 WHERE Vehicle_number IN (SELECT Vehicle_id FROM Vehicle_details 
 WHERE Vehicle_name = 'Truck');
+
 SELECT Driver_name
 FROM Driver_details
 WHERE Driver_distance > 8000;
+
 SELECT COUNT(*)
 FROM Driver_details
 WHERE Driver_distance > 7000;
